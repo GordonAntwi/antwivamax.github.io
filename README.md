@@ -7,7 +7,7 @@ This website represents my brand as **Antwi Gordon**, Executive Virtual Assistan
 I designed it to help founders, CEOs, and creative leaders discover how I simplify operations with calm, clarity, and confidence.
 
 **Live Website:**  
-👉 [https://gordonantwi.github.io/antwivamax.github.io/](https://gordonantwi.github.io/antwivamax.github.io/)
+👉 https://gordonantwi.github.io/
 
 **Core Features:**
 - Clean, calm, human-centered design
