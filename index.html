@@ -79,7 +79,7 @@
   /* small helpers */
   .small{font-size:13px;color:var(--muted)}
   .socials{display:flex;gap:10px;align-items:center}
-  .icon{width:36px;height:36px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(3,18,12,0.04);}
+  .icon{width:36px;height:36px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(3,18,12,0.04);} 
 </style>
 </head>
 <body>
@@ -118,14 +118,14 @@
 
         <div class="hero-image" aria-hidden="true">
           <!-- Replace images/me.jpg with your actual path or URL -->
-          <img src="/https://github.com/GordonAntwi/gordonantwi.github.io/blob/main/me.jpg.png?raw=true" alt="Antwi Gordon — Executive Virtual Assistant">
+          <img src="https://raw.githubusercontent.com/GordonAntwi/gordonantwi.github.io/main/me.jpg.png" alt="Antwi Gordon — Executive Virtual Assistant">
         </div>
       </section>
 
       <!-- ABOUT -->
       <section id="about" class="two-col" aria-label="About">
         <div class="about-photo">
-          <img src="/https://github.com/GordonAntwi/gordonantwi.github.io/blob/main/me.jpg2.png?raw=true" alt="Antwi Gordon">
+          <img src="https://raw.githubusercontent.com/GordonAntwi/gordonantwi.github.io/main/me.jpg2.png" alt="Antwi Gordon">
         </div>
         <div class="about">
           <h3>About Me</h3>
@@ -236,7 +236,7 @@
   // Small runtime injection for editable tokens in the DOM
   document.querySelectorAll('body *').forEach(node=>{
     if(node.childNodes && node.childNodes.length){
-      for(let i=0;i<node.childNodes.length;i++){
+      for(let i=0;i<node.childNodes.length;i++){ 
         const n = node.childNodes[i];
         if(n.nodeType === Node.TEXT_NODE){
           let txt = n.textContent;
@@ -262,7 +262,7 @@
       for(const attr of el.attributes || []){
         if(attr.value && attr.value.includes('{{')){
           Object.keys(SITE).forEach(k=>{
-            if(attr.value.includes("{{"+k+"}}")){
+            if(attr.value.includes("{{"+k+"}}")){ 
               attr.value = attr.value.replaceAll("{{"+k+"}}", SITE[k]);
             }
           });
