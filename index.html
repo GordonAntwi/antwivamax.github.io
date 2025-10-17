@@ -3,96 +3,109 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>{{META_TITLE}}</title>
-<meta name="description" content="{{META_DESC}}" />
-<meta name="theme-color" content="#6FA59B" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Antwi VA Max — Executive Virtual Assistant | Calm Command</title>
+<meta name="description" content="Antwi VA Max — Calm, human-centered executive virtual assistance for founders and CEOs. Inbox management, workflows, lead gen, and onboarding automation." />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- Structured data (Person) -->
+<!-- Structured data -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"Person",
-  "name":"{Antwi VA Max}",
+  "name":"Antwi VA Max",
   "jobTitle":"Executive Virtual Assistant",
-  "email":"mailto:{{antwivamax@gmail.com}",
-  "url":"{{SITE_URL}}"
+  "email":"mailto:antwivamax@gmail.com",
+  "url":"https://gordonantwi.github.io/"
 }
 </script>
 
 <style>
-  :root {
-  --primary: #3A8DFF;
-  --accent: #90C2FF;
-  --background: #F7FAFC;
-  --text: #1E2A35;
-}
+  :root{
+    --primary:#3A8DFF;      /* main blue */
+    --accent:#90C2FF;       /* light blue */
+    --bg-start: #E8F4FF;    /* sky blue */
+    --bg-end: #FFFFFF;      /* white */
+    --card: #FFFFFF;
+    --text: #103243;        /* deep navy-gray */
+    --muted: #516F7E;
     --radius: 14px;
-    --maxW: 1100px;
+    --maxW: 1060px;
   }
+
   *{box-sizing:border-box}
-  body{font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial; margin:0; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased;}
+  html,body{height:100%;margin:0;font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg-start),var(--bg-end));color:var(--text);-webkit-font-smoothing:antialiased}
+  a{color:var(--primary);text-decoration:none}
   .wrap{max-width:var(--maxW);margin:36px auto;padding:0 20px;}
-  .card{background:var(--card);border-radius:var(--radius);box-shadow:0 8px 30px rgba(3,18,12,0.06);overflow:hidden;}
-  header{display:flex;align-items:center;gap:18px;padding:18px 24px;}
-  .logo{display:flex;gap:12px;align-items:center;}
-  .logo-mark{width:46px;height:46px;border-radius:10px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600}
-  .brand-title h1{margin:0;font-size:18px}
-  .brand-title p{margin:0;color:var(--muted);font-size:13px}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:0 10px 30px rgba(16,50,67,0.06);overflow:hidden}
+  header{display:flex;align-items:center;gap:16px;padding:20px 28px}
+  .logo-mark{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px}
+  .brand h1{margin:0;font-size:18px}
+  .brand p{margin:0;color:var(--muted);font-size:13px}
   nav{margin-left:auto;display:flex;gap:10px;align-items:center}
-  nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:8px 12px;border-radius:10px}
-  nav a.cta{background:var(--primary);color:#fff;padding:9px 14px;font-weight:600}
-  /* Hero */
-  .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;padding:36px;}
-  @media(max-width:920px){.hero{grid-template-columns:1fr}}
-  .hero h2{font-size:32px;margin:0 0 12px 0;line-height:1.06}
-  .hero p{color:var(--muted);margin:0 0 18px 0}
-  .buttons{display:flex;gap:12px}
-  .btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
-  .btn.primary{background:var(--primary);color:white}
-  .btn.ghost{background:transparent;border:1px solid #e6e6e6;color:var(--text)}
-  .hero-image{border-radius:12px;overflow:hidden}
+  nav a {padding:8px 12px;border-radius:10px;font-weight:600;color:var(--muted);background:transparent}
+  nav a.cta{background:var(--primary);color:#fff}
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;padding:40px}
+  @media(max-width:920px){.hero{grid-template-columns:1fr;padding:28px}}
+  .hero h2{font-size:30px;margin:0 0 10px 0;line-height:1.05}
+  .hero p.lead{color:var(--muted);margin:0 0 18px 0;line-height:1.6}
+  .buttons{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:10px 16px;border-radius:10px;font-weight:700}
+  .btn.primary{background:var(--primary);color:#fff}
+  .btn.ghost{background:#fff;border:1px solid rgba(16,50,67,0.06);color:var(--text)}
+  .hero-image{border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(16,50,67,0.08)}
   .hero-image img{width:100%;height:100%;object-fit:cover;display:block}
-  /* About / Layout */
-  .two-col{display:grid;grid-template-columns:320px 1fr;gap:28px;padding:28px 36px;border-top:1px solid #f3f3f3}
+
+  /* ABOUT / LAYOUT */
+  .two-col{display:grid;grid-template-columns:320px 1fr;gap:28px;padding:30px 36px;border-top:1px solid rgba(16,50,67,0.04)}
   @media(max-width:920px){.two-col{grid-template-columns:1fr}}
-  .about-photo{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+  .about-photo{width:100%;border-radius:12px;overflow:hidden}
   .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
   .about h3{margin-top:0}
-  .muted{color:var(--muted);line-height:1.6}
-  /* Services */
-  .services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:22px 36px;border-top:1px solid #f3f3f3}
+  .muted{color:var(--muted);line-height:1.7}
+
+  /* SERVICES */
+  .services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:22px 36px;border-top:1px solid rgba(16,50,67,0.04)}
   @media(max-width:720px){.services{grid-template-columns:1fr}}
-  .svc{background:linear-gradient(180deg,#fff,#fbfbfb);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(3,18,12,0.04)}
+  .svc{background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(16,50,67,0.04)}
   .svc h4{margin:0 0 8px;color:var(--primary)}
+  .svc p{margin:0;color:var(--muted)}
+
   /* CTA block */
-  .cta-block{padding:28px 36px;border-top:1px solid #f3f3f3;display:flex;align-items:center;justify-content:space-between;gap:22px}
+  .cta-block{padding:28px 36px;border-top:1px solid rgba(16,50,67,0.03);display:flex;align-items:center;justify-content:space-between;gap:22px}
+  @media(max-width:720px){.cta-block{flex-direction:column;align-items:flex-start}}
   .cta-block p{margin:0;color:var(--muted)}
-  .cta-actions{display:flex;gap:12px}
-  /* Newsletter */
-  .newsletter{padding:28px 36px;border-top:1px solid #f3f3f3;background:linear-gradient(180deg,#f7fbf9,transparent)}
+
+  /* NEWSLETTER */
+  .newsletter{padding:30px 36px;border-top:1px solid rgba(16,50,67,0.04);background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent)}
   .newsletter h4{margin:0 0 8px}
   .newsletter p{margin:0 0 12px;color:var(--muted)}
-  /* Footer */
-  footer{padding:18px 36px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid #f3f3f3}
-  /* small helpers */
-  .small{font-size:13px;color:var(--muted)}
-  .socials{display:flex;gap:10px;align-items:center}
-  .icon{width:36px;height:36px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(3,18,12,0.04);} 
+
+  /* FOOTER */
+  footer{padding:20px 36px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid rgba(16,50,67,0.04)}
+  .socials{display:flex;gap:12px;justify-content:center;margin-bottom:10px}
+  .icon{width:44px;height:44px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(16,50,67,0.05);font-weight:700}
+
+  /* spacing helpers */
+  section { padding: 60px 0; }
+  h1,h2,h3 { margin-bottom: 18px; }
+  p { margin-bottom: 14px; }
+  .small { font-size:13px;color:var(--muted); }
+
 </style>
 </head>
 <body>
+
   <div class="wrap">
     <main class="card" role="main" aria-labelledby="site-title">
 
       <!-- Header -->
       <header>
-        <div class="logo">
-          <div class="logo-mark">AVM</div>
-          <div class="brand-title">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="logo-mark">AV</div>
+          <div class="brand">
             <h1 id="site-title">Antwi VA Max</h1>
-            <p class="small">{{TAGLINE}}</p>
+            <p class="small">Executive Virtual Assistant | Operations Streamliner</p>
           </div>
         </div>
 
@@ -100,47 +113,48 @@
           <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#work">Work</a>
-          <a class="cta" href="{{CALENDLY_URL}}" target="_blank">Book a Call</a>
+          <a class="cta" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank">Book a Call</a>
         </nav>
       </header>
 
       <!-- HERO -->
       <section class="hero" aria-label="Hero">
         <div>
-          <h2>{{HERO_HEADING}}</h2>
-          <p class="muted">{{HERO_SUB}}</p>
+          <p class="small" style="margin-bottom:10px">Executive Virtual Assistant • Operations Streamliner</p>
+          <h2>Hello — I’m Antwi Gordon</h2>
+          <p class="lead muted">I help founders and creative leaders turn daily operations into systems that breathe — calm, organized, and efficient. My goal is simple: make your day lighter and your business flow smarter.</p>
           <div class="buttons" role="group" aria-label="Primary actions">
-            <a class="btn primary" href="{{CALENDLY_URL}}" target="_blank">Book a Discovery Call</a>
-            <a class="btn ghost" href="{{LINKEDIN_URL}}" target="_blank">Connect on LinkedIn</a>
+            <a class="btn primary" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank">Book a Discovery Call</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/antwi-gordon-02a74a271" target="_blank">Connect on LinkedIn</a>
           </div>
           <p class="small" style="margin-top:14px">Trusted by busy founders — calm precision, clear communication.</p>
         </div>
 
         <div class="hero-image" aria-hidden="true">
-          <!-- Replace images/me.jpg with your actual path or URL -->
-          <img src="https://raw.githubusercontent.com/GordonAntwi/gordonantwi.github.io/main/me.jpg.png" alt="Antwi Gordon — Executive Virtual Assistant">
+          <!-- Add your uploaded image at images/me.jpg -->
+          <img src="images/me.jpg" alt="Antwi Gordon — Executive Virtual Assistant">
         </div>
       </section>
 
       <!-- ABOUT -->
       <section id="about" class="two-col" aria-label="About">
         <div class="about-photo">
-          <img src="https://raw.githubusercontent.com/GordonAntwi/gordonantwi.github.io/main/me.jpg2.png" alt="Antwi Gordon">
+          <img src="images/me.jpg" alt="Antwi Gordon portrait">
         </div>
         <div class="about">
           <h3>About Me</h3>
           <p class="muted">I started my journey as a Virtual Assistant with a simple goal — to bring calm and clarity into the way people work. Over time, I learned that productivity isn’t about doing more; it’s about doing what matters with focus and intention. Every task I take on — from inbox management to workflow design — is a chance to help someone find ease, balance, and confidence in their day. That’s what drives me.</p>
 
           <p style="margin-top:18px"><strong>Quick facts</strong></p>
-          <ul class="small" style="padding-left:20px">
+          <ul class="small" style="padding-left:18px;color:var(--muted)">
             <li>Executive support for CEOs, founders & coaches</li>
             <li>Systems & workflow optimization</li>
             <li>Lead generation & CRM integrations</li>
           </ul>
 
           <div style="margin-top:18px">
-            <a class="btn primary" href="{{CALENDLY_URL}}" target="_blank">Start a Conversation</a>
-            <a class="btn ghost" href="mailto:{{CONTACT_EMAIL}}">Email Me</a>
+            <a class="btn primary" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank">Start a Conversation</a>
+            <a class="btn ghost" href="mailto:antwivamax@gmail.com">Email Me</a>
           </div>
         </div>
       </section>
@@ -157,7 +171,7 @@
         </article>
         <article class="svc">
           <h4>Social Media & Digital Branding</h4>
-          <p class="small">Content strategy and presence designed to reflect calm leadership and consistent value.</p>
+          <p class="small">Content planning, engagement, and brand presence designed to reflect calm leadership.</p>
         </article>
         <article class="svc">
           <h4>Project & Operations Coordination</h4>
@@ -172,8 +186,8 @@
           <p class="muted" style="margin-top:6px">Let’s design systems that free your time and protect your focus.</p>
         </div>
         <div class="cta-actions">
-          <a class="btn primary" href="{{CALENDLY_URL}}" target="_blank">Book a Discovery Call</a>
-          <a class="btn ghost" href="{{LINKEDIN_URL}}" target="_blank">Connect on LinkedIn</a>
+          <a class="btn primary" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank">Book a Discovery Call</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/antwi-gordon-02a74a271" target="_blank">Connect on LinkedIn</a>
         </div>
       </section>
 
@@ -182,94 +196,35 @@
         <h4>Join My Newsletter</h4>
         <p>Receive calm, actionable productivity tips and workflow insights directly to your inbox.</p>
 
-        <!-- HUBSPOT EMBED PLACEHOLDER
-             1) In HubSpot: Create a form > Share > Embed code
-             2) Replace the script and div below with the full HubSpot embed you receive.
-             Example embed starts with: <script charset="utf-8" src="https://js.hsforms.net/forms/v2.js"></script>
-        -->
-        <!-- BEGIN: Replace this block with your HubSpot embed code -->
-        <div id="hubspot-form-placeholder" style="background:#fff;padding:14px;border-radius:10px">
-          <p class="small">Your HubSpot form goes here. In HubSpot: create a form and paste the embed script here to show it.</p>
-          <p class="small">Example: &lt;script src="https://js.hsforms.net/forms/v2.js"&gt;&lt;/script&gt;</p>
-        </div>
-        <!-- END: Replace this block with your HubSpot embed code -->
+        <!-- BEGIN: HubSpot embed (your provided snippet) -->
+        <script src="https://js-eu1.hsforms.net/forms/embed/147094081.js" defer></script>
+        <div class="hs-form-frame" data-region="eu1" data-form-id="4f9aaa0f-d645-47e3-a639-d243fbcdb8e8" data-portal-id="147094081"></div>
+        <!-- END: HubSpot embed -->
 
       </section>
 
       <!-- FOOTER -->
       <footer>
-        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px">
-          <div class="socials">
-            <a class="icon" href="{{LINKEDIN_URL}}" target="_blank" title="LinkedIn">
-              <!-- simple text icon -->
-              in
-            </a>
-            <a class="icon" href="{{CALENDLY_URL}}" target="_blank" title="Book a call">
-              📅
-            </a>
-          </div>
+        <div class="socials" role="navigation" aria-label="Social">
+          <a class="icon" href="https://www.linkedin.com/in/antwi-gordon-02a74a271" target="_blank" title="LinkedIn">in</a>
+          <a class="icon" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank" title="Book a call">📅</a>
         </div>
-        <div class="small">© {{YEAR}} {{BRAND_NAME}} • Calm Command — Executive Virtual Assistant for Founders</div>
-        <div style="margin-top:8px" class="small"><a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></div>
-        <div class="small" style="margin-top:6px">Website built & maintained by Antwi Gordon • Hosted on GitHub Pages</div>
+        <div class="small">© <span id="year"></span> Antwi VA Max • Calm Command</div>
+        <div style="margin-top:8px"><a href="mailto:antwivamax@gmail.com" class="small">antwivamax@gmail.com</a></div>
       </footer>
 
     </main>
   </div>
 
-<!-- Editable fields (replace values below or inject via a small script) -->
 <script>
-  /* Replace the placeholder values below or use a small build step to inject them automatically */
-  const SITE = {
-    BRAND_NAME: "Antwi VA Max",
-    TAGLINE: "Executive Virtual Assistant | Operations Streamliner for Founders & CEOs",
-    HERO_HEADING: "Hello, I’m Antwi Gordon\nExecutive Virtual Assistant & Workflow Strategist",
-    HERO_SUB: "I help founders and creative leaders turn daily operations into systems that breathe — calm, organized, and efficient. My goal is simple: make your day lighter and your business flow smarter.",
-    CONTACT_EMAIL: "antwivamax@gmail.com",
-    CALENDLY_URL: "https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max",
-    LINKEDIN_URL: "https://www.linkedin.com/in/antwi-gordon-02a74a271",
-    META_TITLE: "Antwi VA Max — Executive Virtual Assistant | Calm Command",
-    META_DESC: "Calm, focused operations support for founders and CEOs. Inbox management, workflows, and onboarding automation.",
-    SITE_URL: "https://antwivamax.github.io",
-    YEAR: (new Date()).getFullYear()
-  };
+  // small runtime replacements and nice touches
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Small runtime injection for editable tokens in the DOM
-  document.querySelectorAll('body *').forEach(node=>{
-    if(node.childNodes && node.childNodes.length){
-      for(let i=0;i<node.childNodes.length;i++){ 
-        const n = node.childNodes[i];
-        if(n.nodeType === Node.TEXT_NODE){
-          let txt = n.textContent;
-          if(typeof txt === "string"){
-            Object.keys(SITE).forEach(k=>{
-              const token = "{{"+k+"}}";
-              if(txt.includes(token)) n.textContent = txt.replaceAll(token, SITE[k]);
-            });
-          }
-        }
-      }
+  // Accessibility: focus outline for keyboard users
+  document.addEventListener('keyup', function(e){
+    if(e.key === "Tab"){
+      document.body.classList.add('show-focus');
     }
-  });
-
-  // Also replace attributes (href/src/alt/title)
-  const attrMap = [
-    {sel:'a[href*="{{CALENDLY_URL}}"]','attr':'href','key':'CALENDLY_URL'},
-    {sel:'a[href*="{{LINKEDIN_URL}}"]','attr':'href','key':'LINKEDIN_URL'},
-    {sel:'a[href*="mailto:{{CONTACT_EMAIL}}"]','attr':'href','key':'CONTACT_EMAIL'}
-  ];
-  attrMap.forEach(m=>{
-    document.querySelectorAll('*').forEach(el=>{
-      for(const attr of el.attributes || []){
-        if(attr.value && attr.value.includes('{{')){
-          Object.keys(SITE).forEach(k=>{
-            if(attr.value.includes("{{"+k+"}}")){ 
-              attr.value = attr.value.replaceAll("{{"+k+"}}", SITE[k]);
-            }
-          });
-        }
-      }
-    });
   });
 </script>
 
