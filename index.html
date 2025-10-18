@@ -3,359 +3,982 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Antwi VA Max — Executive Virtual Assistant | Calm Command</title>
-<meta name="description" content="Antwi VA Max — Calm, human-centered executive virtual assistance for founders and CEOs. Inbox management, workflows, lead gen, and onboarding automation." />
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- SEO Rule 1: Optimized Title Tag (Max ~60 characters) -->
+<title>Antwi VA Max | Executive Virtual Assistant & Operational Clarity</title>
+<!-- SEO Rule 2: Optimized Meta Description (Max ~155 characters) -->
+<meta name="description" content="Antwi VA Max delivers elite Executive Virtual Assistant support, specializing in Strategic Time Management, Automation, and Operational Clarity for CEOs and founders." />
+<!-- SEO Rule 3: Canonical Link (Standard best practice) -->
+<link rel="canonical" href="https://gordonantwi.github.io/index.html" />
 
-<!-- Structured data -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Load Tailwind CSS for modern, professional styling of the animation overlay and assistant -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Load Three.js for the 3D visualization -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<!-- SEO Rule 4: Structured data (Good for VA services) -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Person",
-  "name":"Antwi VA Max",
-  "jobTitle":"Executive Virtual Assistant",
-  "email":"mailto:antwivamax@gmail.com",
-  "url":"https://gordonantwi.github.io/"
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Antwi VA Max",
+  "jobTitle":"Executive Virtual Assistant | Operational Streamliner",
+  "email":"mailto:antwivamax@gmail.com",
+  "url":"https://gordonantwi.github.io/"
 }
 </script>
 
 <style>
-  :root{
-    --primary:#3A8DFF;      /* main blue */
-    --accent:#90C2FF;       /* light blue */
-    --bg-start: #E8F4FF;    /* sky blue */
-    --bg-end: #FFFFFF;      /* white */
-    --card: #FFFFFF;
-    --text: #103243;        /* deep navy-gray */
-    --muted: #516F7E;
-    --radius: 14px;
-    --maxW: 1060px;
+  :root{
+    --primary:#3A8DFF;      /* main blue */
+    --accent:#90C2FF;       /* light blue */
+    --bg-start: #E8F4FF;    /* sky blue for about section */
+    --bg-end: #FFFFFF;      /* white */
+    --card: #FFFFFF;
+    --text: #103243;        /* deep navy-gray */
+    --muted: #516F7E;
+    --radius: 14px;
+    --maxW: 1060px;
+    /* 3D animation colors */
+    --3d-bg: #0d0d1e;
+    --3d-primary: #4f46e5; /* indigo-600 */
+    --3d-accent: #c4b5fd; /* indigo-300 */
+    /* Global Body Background Color */
+    --body-bg: #e6f0ff; 
+  }
+
+  *{box-sizing:border-box}
+  html,body{
+    height:100%;
+    margin:0;
+    font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    background-color:var(--body-bg); /* Applied the light blue background here */
+    color:var(--text);
+    -webkit-font-smoothing:antialiased
+  }
+  a{color:var(--primary);text-decoration:none}
+  
+  /* Main Content Wrapper - Centers the main page content */
+  #main-content-wrapper{
+    max-width:var(--maxW);
+    margin:0 auto;
+    padding:0 20px 60px 20px;
+    z-index: 10; 
+    position: relative; /* Brings content above the body background when necessary */
+    margin-top: -60px; /* Pulls content slightly into the hero section for a smooth transition */
+  }
+  
+  /* Shared Card Styling for sections */
+  .card-section{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:0 10px 30px rgba(16,50,67,0.06);
+    overflow:hidden;
+    margin-bottom: 30px; /* Space between the main content cards */
   }
 
-  *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg-start),var(--bg-end));color:var(--text);-webkit-font-smoothing:antialiased}
-  a{color:var(--primary);text-decoration:none}
-  .wrap{max-width:var(--maxW);margin:36px auto;padding:0 20px;}
-  .card{background:var(--card);border-radius:var(--radius);box-shadow:0 10px 30px rgba(16,50,67,0.06);overflow:hidden}
-  header{display:flex;align-items:center;gap:16px;padding:20px 28px}
-  .logo-mark{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px}
-  .brand h1{margin:0;font-size:18px}
-  .brand p{margin:0;color:var(--muted);font-size:13px}
-  nav{margin-left:auto;display:flex;gap:10px;align-items:center}
-  nav a {padding:8px 12px;border-radius:10px;font-weight:600;color:var(--muted);background:transparent}
-  nav a.cta{background:var(--primary);color:#fff}
-  /* HERO */
-  .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;padding:40px}
-  @media(max-width:920px){.hero{grid-template-columns:1fr;padding:28px}}
-  .hero h2{font-size:30px;margin:0 0 10px 0;line-height:1.05}
-  .hero p.lead{color:var(--muted);margin:0 0 18px 0;line-height:1.6}
-  .buttons{display:flex;gap:12px;flex-wrap:wrap}
-  .btn{display:inline-block;padding:10px 16px;border-radius:10px;font-weight:700}
-  .btn.primary{background:var(--primary);color:#fff}
-  .btn.ghost{background:#fff;border:1px solid rgba(16,50,67,0.06);color:var(--text)}
-  .hero-image{border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(16,50,67,0.08)}
-  .hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+  /* FIXED HEADER STYLES (Significantly changed for fixed position) */
+  header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* High z-index to stay on top */
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:16px 30px;
+    /* Semi-transparent white background for a clean, modern look */
+    background: rgba(255, 255, 255, 0.95); 
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(16,50,67,0.08);
+  }
+  .logo-mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px}
+  .brand h1{margin:0;font-size:18px}
+  .brand p{margin:0;color:var(--muted);font-size:13px}
+  nav{margin-left:auto;display:flex;gap:10px;align-items:center}
+  nav a {padding:8px 12px;border-radius:10px;font-weight:600;color:var(--muted);background:transparent; transition: all 0.2s}
+  nav a:hover { background-color: var(--bg-start); color: var(--primary); }
 
-  /* ABOUT / LAYOUT */
-  .two-col{display:grid;grid-template-columns:320px 1fr;gap:28px;padding:30px 36px;border-top:1px solid rgba(16,50,67,0.04)}
-  @media(max-width:920px){.two-col{grid-template-columns:1fr}}
-  .about-photo{width:100%;border-radius:12px;overflow:hidden}
-  .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
-  .about h3{margin-top:0}
-  .muted{color:var(--muted);line-height:1.7}
+  /* Timezone Clock Styling */
+  #timezone-clock {
+      /* Added flex-grow to ensure the nav pushes to the right */
+      flex-grow: 1; 
+      justify-content: flex-start;
+      margin-left: 20px; /* Separates it from the logo */
+  }
 
-  /* SERVICES */
-  .services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:22px 36px;border-top:1px solid rgba(16,50,67,0.04)}
-  @media(max-width:720px){.services{grid-template-columns:1fr}}
-  .svc{background:linear-gradient(180deg,#fff,#fbfdff);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(16,50,67,0.04)}
-  .svc h4{margin:0 0 8px;color:var(--primary)}
-  .svc p{margin:0;color:var(--muted)}
+  /* Call to Action Button Styles - Used in header */
+  nav a.cta{
+    background:var(--primary);
+    color:#fff;
+    padding:10px 18px;
+    box-shadow: 0 4px 10px rgba(58, 141, 255, 0.3);
+  }
+  nav a.cta:hover {
+    background-color: #2b70d4;
+    box-shadow: 0 6px 15px rgba(58, 141, 255, 0.5);
+    color: #fff;
+  }
+  
+  /* HERO & 3D ANIMATION STYLES */
+  #scene-container {
+    width: 100%;
+    /* Added padding-top to account for the fixed header */
+    padding-top: 76px; 
+    height: 70vh; 
+    min-height: 450px;
+    position: relative;
+    background-color: var(--3d-bg); 
+  }
+  canvas {
+      display: block;
+  }
+  /* Overlay for the text and professionalism */
+  #hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      pointer-events: none; 
+      padding: 20px;
+      /* Adjust overlay text position to account for fixed header */
+      padding-top: 100px; 
+  }
+  .hero-text {
+      font-size: 3rem; 
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      font-weight: 900;
+  }
+  .hero-subtext {
+      font-size: 1.25rem; 
+      color: #d1d5db; 
+      max-width: 55rem; 
+      font-weight: 300; 
+  }
+  .hero-cta {
+      margin-top: 2rem;
+      padding: 14px 40px;
+      background-color: var(--primary);
+      color: white;
+      font-weight: 800;
+      border-radius: 9999px; 
+      /* Enhanced attractive shadow */
+      box-shadow: 0 15px 40px rgba(58, 141, 255, 0.6); 
+      transition: all 0.3s;
+      transform: translateY(0);
+      pointer-events: auto;
+  }
+  .hero-cta:hover {
+      background-color: #2b70d4;
+      transform: translateY(-2px) scale(1.02); /* Slight lift and scale */
+      box-shadow: 0 20px 50px rgba(58, 141, 255, 0.8);
+  }
+  @media(max-width: 920px) {
+    .hero-text { font-size: 2.25rem; }
+    .hero-subtext { font-size: 1rem; }
+    #scene-container { height: 60vh; min-height: 350px; }
+  }
 
-  /* CTA block */
-  .cta-block{padding:28px 36px;border-top:1px solid rgba(16,50,67,0.03);display:flex;align-items:center;justify-content:space-between;gap:22px}
-  @media(max-width:720px){.cta-block{flex-direction:column;align-items:flex-start}}
-  .cta-block p{margin:0;color:var(--muted)}
 
-  /* NEWSLETTER */
-  .newsletter{padding:30px 36px;border-top:1px solid rgba(16,50,67,0.04);background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent)}
-  .newsletter h4{margin:0 0 8px}
-  .newsletter p{margin:0 0 12px;color:var(--muted)}
+  /* ABOUT / LAYOUT */
+  .section-content{padding: 30px 36px 40px;}
+  /* Updated two-col layout for better responsiveness */
+  .two-col{display:grid;grid-template-columns:320px 1fr;gap:28px;}
+  @media(max-width:920px){.two-col{grid-template-columns:1fr}}
+  .about-photo{width:100%;border-radius:12px;overflow:hidden}
+  /* Adjusted image size for better look on small screens */
+  .about-photo img{width:100%;height:auto;aspect-ratio: 1 / 1; object-fit: cover; display:block}
+  .about h3{margin-top:0}
+  .muted{color:var(--muted);line-height:1.7}
 
-  /* FOOTER */
-  footer{padding:20px 36px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid rgba(16,50,67,0.04)}
-  .socials{display:flex;gap:12px;justify-content:center;margin-bottom:10px}
-  .icon{width:44px;height:44px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(16,50,67,0.05);font-weight:700}
+  /* SERVICES */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media(max-width:1000px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:720px){.services-grid{grid-template-columns:1fr)}}
+  .svc{background:linear-gradient(180deg,#fff,#fbfdff);padding:24px;border-radius:12px;box-shadow:0 6px 18px rgba(16,50,67,0.04); transition: transform 0.3s;}
+  .svc:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(16,50,67,0.1); }
+  .svc h4{margin:0 0 8px;color:var(--primary);font-size:1.2rem; font-weight: 700;}
+  .svc p{margin:0;color:var(--muted); font-size: 0.95rem;}
 
-  /* spacing helpers */
-  section { padding: 60px 0; }
-  h1,h2,h3 { margin-bottom: 18px; }
-  p { margin-bottom: 14px; }
-  .small { font-size:13px;color:var(--muted); }
+  /* CTA block - now integrated into a card-section */
+  .cta-block{
+    padding:30px 36px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:22px;
+    background: linear-gradient(90deg, #f5f8ff, #ffffff);
+  }
+  @media(max-width:720px){.cta-block{flex-direction:column;align-items:flex-start}}
+  .cta-block p{margin:0;color:var(--muted)}
+  .btn{
+    padding:10px 22px;
+    border-radius:9999px;
+    font-weight:700;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .btn.primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 8px 18px rgba(58, 141, 255, 0.4);
+  }
+  .btn.primary:hover {
+    background: #2b70d4;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 25px rgba(58, 141, 255, 0.5);
+  }
+  .btn.ghost {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+  }
+  .btn.ghost:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  /* NEWSLETTER */
+  .newsletter{padding:30px 36px; background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent)}
+  .newsletter h4{margin:0 0 8px}
+  .newsletter p{margin:0 0 12px;color:var(--muted)}
+  
+  /* --- CUSTOM CSS TO REMOVE HUBSPOT BRANDING (Per User Request) --- */
+  /* This targets common classes used by HubSpot to display their logo/link */
+  .hs-form-frame .hbspt-form-credit { 
+      display: none !important; 
+      visibility: hidden !important;
+  }
+  .hs-form-frame .legal-consent-container a[href*="hubspot"] { 
+      display: none !important; 
+      visibility: hidden !important;
+  }
+  /* ------------------------------------------------------------------- */
+
+  /* FOOTER */
+  footer{padding:20px 36px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid rgba(16,50,67,0.04)}
+  .socials{display:flex;gap:12px;justify-content:center;margin-bottom:10px}
+  .icon{width:40px;height:40px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(16,50,67,0.05);font-weight:700; transition: transform 0.2s}
+  .icon:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(16,50,67,0.1); }
+
+  /* spacing helpers */
+  section { padding: 40px 0; }
+  h1,h2,h3 { margin-bottom: 18px; }
+  p { margin-bottom: 14px; }
+  .small { font-size:13px;color:var(--muted); }
+
+  /* --- AI Assistant Specific Styles (Kept as before) --- */
+  #chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(58, 141, 255, 0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+  }
+  #chat-button:hover {
+      background-color: #2b70d4;
+      transform: scale(1.05);
+  }
+  #chat-modal {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 100%;
+      max-width: 360px;
+      height: 80vh;
+      max-height: 500px;
+      background-color: white;
+      border-radius: var(--radius);
+      box-shadow: 0 15px 40px rgba(16,50,67,0.2);
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+  }
+  #chat-header {
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+  }
+  #chat-messages {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 15px;
+      background-color: #f7f9fc;
+  }
+  #chat-input-area {
+      padding: 10px;
+      border-top: 1px solid #eee;
+      display: flex;
+      gap: 10px;
+  }
+  .message {
+      margin-bottom: 10px;
+      max-width: 90%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      line-height: 1.4;
+  }
+  .user-message {
+      background-color: var(--accent);
+      color: var(--text);
+      margin-left: auto;
+      border-bottom-right-radius: 2px;
+  }
+  .assistant-message {
+      background-color: #fff;
+      color: var(--text);
+      margin-right: auto;
+      border: 1px solid #e0e7ff;
+      border-bottom-left-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .loading-indicator {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      animation: bounce 0.6s infinite alternate;
+      margin: 0 2px;
+  }
+  .loading-indicator:nth-child(2) { animation-delay: 0.2s; }
+  .loading-indicator:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-5px); }
+  }
+  @media (max-width: 400px) {
+    #chat-modal {
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      max-height: 100vh;
+      border-radius: 0;
+    }
+    #chat-button {
+      bottom: 10px;
+      right: 10px;
+    }
+  }
 
 </style>
 </head>
 <body>
 
-  <div class="wrap">
-    <main class="card" role="main" aria-labelledby="site-title">
-
-      <!-- Header -->
-      <header>
-        <div style="display:flex;align-items:center;gap:14px">
-          <div class="logo-mark">AV</div>
-          <div class="brand">
-            <h1 id="site-title">Antwi VA Max</h1>
-            <p class="small">Executive Virtual Assistant | Operations Streamliner</p>
-          </div>
-        </div>
-
-        <nav aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
-          <a class="cta" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank">Book a Call</a>
-        </nav>
-      </header>
-
-      <!-- HERO -->
-      <section class="hero" aria-label="Hero">
-        <div>
-          <p class="small" style="margin-bottom:10px">Executive Virtual Assistant • Operations Streamliner</p>
-          <h2>Hello — I’m Antwi Gordon</h2>
-          <p class="lead muted">I help founders and creative leaders turn daily operations into systems that breathe — calm, organized, and efficient. My goal is simple: make your day lighter and your business flow smarter.</p>
-          <div class="buttons" role="group" aria-label="Primary actions">
-            <a class="btn primary" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank">Book a Discovery Call</a>
-            <a class="btn ghost" href="https://www.linkedin.com/in/antwi-gordon-02a74a271" target="_blank">Connect on LinkedIn</a>
-          </div>
-          <p class="small" style="margin-top:14px">Trusted by busy founders — calm precision, clear communication.</p>
-        </div>
-
-        <div class="hero-image" aria-hidden="true">
-          <!-- Add your uploaded image at images/me.jpg -->
-          <img src="images/me.jpg" alt="Antwi Gordon — Executive Virtual Assistant">
-        </div>
-      </section>
-
-     <!-- ===== ABOUT SECTION ===== -->
-<section id="about" style="background: linear-gradient(to bottom, #d9ecff 0%, #ffffff 100%); padding: 100px 20px; font-family: 'Nunito', sans-serif; color: #1a1a1a;">
-  <div style="max-width: 900px; margin: 0 auto; background: #ffffff; padding: 50px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);">
-    <h2 style="text-align: center; font-size: 2rem; font-weight: 700; color: #004aad; margin-bottom: 30px;">About Me</h2>
+  <!-- 1. FIXED HEADER (SEO: role="banner" for site header) -->
+  <header role="banner">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="logo-mark">AV</div>
+      <div class="brand">
+        <!-- Minor SEO: Primary brand name in H1 (smaller H1 here is fine since a large H1 is in the overlay) -->
+        <h1 id="site-title">Antwi VA Max</h1>
+        <p class="small">Executive Virtual Assistant | Operations Streamliner</p>
+      </div>
+    </div>
     
-    <p style="line-height: 1.8; margin-bottom: 20px;">
-      My name is <strong>Antwi Gordon</strong>, and I come from the beautiful, inspiring country of <strong>Ghana</strong> — a place where hard work, warmth, and purpose shape everything we do.
+    <!-- NEW: Timezone Clock Container -->
+    <div id="timezone-clock" class="hidden md:flex items-center gap-4 text-sm font-semibold text-gray-700 ml-4">
+        <!-- Content will be injected here by JS -->
+    </div>
+
+    <!-- SEO: role="navigation" for main site navigation -->
+    <nav role="navigation" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services-block">Services</a>
+      <a href="#work">Work</a>
+      <a class="cta" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank">Book a Call</a>
+    </nav>
+  </header>
+  
+<!-- 2. TIME MAXIMIZER 3D ANIMATION CONTAINER (Full Bleed Hero) -->
+<div id="scene-container"></div>
+<div id="hero-overlay">
+    <!-- SEO Rule 5: Main keyword-rich H1 for the page -->
+    <h1 class="hero-text font-extrabold text-white mb-4 drop-shadow-lg">
+        MAXIMIZE <span style="color: #6366f1;">YOUR TIME</span>
+    </h1>
+    <p class="hero-subtext max-w-2xl font-light drop-shadow-md">
+        Operational Clarity Starts Now. Antwi VA Max delivers elite **executive virtual assistant** support, turning operational chaos into high-level efficiency.
     </p>
-
-    <p style="line-height: 1.8; margin-bottom: 20px;">
-      My journey didn’t begin with virtual assistance — it began long before that. While still in school, I worked in a boutique shop, driven by my passion for <strong>marketing and customer service</strong>. That experience taught me how communication, presentation, and trust can shape strong relationships.
-    </p>
-
-    <p style="line-height: 1.8; margin-bottom: 20px;">
-      Later, I joined a financial company called <strong>Nami Nenim</strong>, where I worked as an <strong>Administrative Assistant</strong>. There, I developed a love for organization, structure, and efficiency — but I also felt something missing. Something deeper was calling me, though I didn’t yet understand what it was.
-    </p>
-
-    <p style="line-height: 1.8; margin-bottom: 20px;">
-      Over time, I realized that what pulled me forward wasn’t just work — it was the desire to <strong>help others bring order and calm into their daily lives</strong>. I had spent years researching <strong>time management</strong>, searching for ways to control time itself. But in the end, I discovered something even more powerful: you can’t manage time, but you can help others manage how they use it.
-    </p>
-
-    <p style="line-height: 1.8; margin-bottom: 20px;">
-      That discovery led me to become a <strong>Virtual Assistant</strong> — a role that perfectly combines everything I’ve learned: marketing, organization, service, and genuine care.
-    </p>
-
-    <p style="line-height: 1.8; margin-bottom: 20px;">
-      Today, I dedicate my work to helping <strong>founders, CEOs, and business owners</strong> find peace in their operations. Every task I take on carries <strong>integrity, trust, and heart</strong>, because I believe that real success isn’t just in achieving more — it’s in achieving it <em>calmly and with clarity.</em>
-    </p>
-
-    <p style="line-height: 1.8; text-align: center; font-weight: 600; color: #004aad;">
-      What started as a search for how to manage time has become my purpose — to help others make time work beautifully for them. 🌱
-    </p>
-  </div>
-</section>
-
-
-      <!-- SERVICES -->
-      <section id="services" class="services" aria-label="Services">
-        <article class="svc">
-          <h4>Executive & Administrative Management</h4>
-          <p class="small">Inbox management, scheduling, documents and research — handled with care and clarity.</p>
-        </article>
-        <article class="svc">
-          <h4>Lead Generation & Client Relationship Support</h4>
-          <p class="small">Prospect research, outreach, and relationship systems that scale with intention.</p>
-        </article>
-        <article class="svc">
-          <h4>Social Media & Digital Branding</h4>
-          <p class="small">Content planning, engagement, and brand presence designed to reflect calm leadership.</p>
-        </article>
-        <article class="svc">
-          <h4>Project & Operations Coordination</h4>
-          <p class="small">Workflow design, task tracking, and deadline management — ensuring smooth execution.</p>
-        </article>
-      </section>
-
-      <!-- WORK / CTA -->
-      <section id="work" class="cta-block" aria-label="Work with me">
-        <div>
-          <h3 style="margin:0">Ready to simplify your operations?</h3>
-          <p class="muted" style="margin-top:6px">Let’s design systems that free your time and protect your focus.</p>
-        </div>
-        <div class="cta-actions">
-          <a class="btn primary" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank">Book a Discovery Call</a>
-          <a class="btn ghost" href="https://www.linkedin.com/in/antwi-gordon-02a74a271" target="_blank">Connect on LinkedIn</a>
-        </div>
-      </section>
-
-      <!-- NEWSLETTER (HubSpot) -->
-      <section class="newsletter" aria-label="Newsletter">
-        <h4>Join My Newsletter</h4>
-        <p>Receive calm, actionable productivity tips and workflow insights directly to your inbox.</p>
-
-        <!-- BEGIN: HubSpot embed (your provided snippet) -->
-        <script src="https://js-eu1.hsforms.net/forms/embed/147094081.js" defer></script>
-        <div class="hs-form-frame" data-region="eu1" data-form-id="4f9aaa0f-d645-47e3-a639-d243fbcdb8e8" data-portal-id="147094081"></div>
-        <!-- END: HubSpot embed -->
-
-      </section>
-
-      <!-- FOOTER -->
-      <footer>
-        <div class="socials" role="navigation" aria-label="Social">
-          <a class="icon" href="https://www.linkedin.com/in/antwi-gordon-02a74a271" target="_blank" title="LinkedIn">in</a>
-          <a class="icon" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank" title="Book a call">📅</a>
-        </div>
-        <div class="small">© <span id="year"></span> Antwi VA Max • Calm Command</div>
-        <div style="margin-top:8px"><a href="mailto:antwivamax@gmail.com" class="small">antwivamax@gmail.com</a></div>
-      </footer>
-
-    </main>
-  </div>
-
-<script>
-  // small runtime replacements and nice touches
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Accessibility: focus outline for keyboard users
-  document.addEventListener('keyup', function(e){
-    if(e.key === "Tab"){
-      document.body.classList.add('show-focus');
-    }
-  });
-</script>
-<!-- ===== KNOW ME MODAL ===== -->
-<style>
-  @keyframes fadeSlideUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  #knowMeModal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(5px);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-
-  #knowMeModal.show {
-    display: flex;
-    opacity: 1;
-  }
-
-  .knowme-box {
-    background: #ffffff;
-    padding: 45px 35px;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    text-align: center;
-    max-width: 420px;
-    width: 90%;
-    animation: fadeSlideUp 0.7s ease forwards;
-  }
-
-  .knowme-box h2 {
-    font-family: "Nunito", sans-serif;
-    color: #007bff;
-    margin-bottom: 12px;
-    font-size: 1.6rem;
-  }
-
-  .knowme-box p {
-    font-family: "Nunito", sans-serif;
-    color: #333;
-    margin-bottom: 25px;
-  }
-
-  .knowme-btn {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 12px 32px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-family: "Nunito", sans-serif;
-    font-size: 1rem;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-
-  .knowme-btn:hover {
-    background: #005fcc;
-    transform: scale(1.05);
-  }
-
-  .knowme-later {
-    background: transparent;
-    color: #007bff;
-    border: none;
-    cursor: pointer;
-    font-family: "Nunito", sans-serif;
-    font-size: 0.9rem;
-    margin-top: 10px;
-  }
-</style>
-
-<div id="knowMeModal">
-  <div class="knowme-box">
-    <h2>👋 Welcome</h2>
-    <p>Would you like to <strong>listen</strong> and get to know me better?</p>
-    <button id="playAudioBtn" class="knowme-btn">🎧 Know Me</button><br>
-    <button id="closeModalBtn" class="knowme-later">Maybe later</button>
-  </div>
+    <a href="#work" class="hero-cta">
+        Book Your 15-Minute Clarity Call
+    </a>
 </div>
 
-<audio id="introAudio" src="about-intro.mp3"></audio>
+<!-- 3. MAIN CONTENT WRAPPER (SEO: role="main" for primary content) -->
+<main id="main-content-wrapper" role="main">
+
+    <!-- ===== WHO I SERVE SECTION: Explicit Target Audience (Card 1) ===== -->
+    <section id="who-i-serve" class="card-section" style="padding: 30px 36px 40px; border-bottom: 1px solid rgba(16,50,67,0.04);">
+        <!-- SEO: H2 following the H1 -->
+        <h2 class="text-center text-2xl font-extrabold mb-6" style="color: var(--primary);">Your Success, My Focus.</h2>
+        <p class="text-center muted max-w-2xl mx-auto mb-10">I partner with highly focused individuals who understand the true cost of lost time.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-5 border border-gray-100 rounded-xl bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 text-center">
+                <h5 class="font-bold text-lg text-indigo-600 mb-1">CEOs & Visionary Founders</h5>
+                <p class="text-sm text-gray-500">Tired of administrative friction draining your vision. You need systems, not more tasks.</p>
+            </div>
+            <div class="p-5 border border-gray-100 rounded-xl bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 text-center">
+                <h5 class="font-bold text-lg text-indigo-600 mb-1">High-Profile Influencers</h5>
+                <p class="text-sm text-gray-500">Need a seamless, automated **Content Pipeline** to handle asset management and publishing logistics.</p>
+            </div>
+            <div class="p-5 border border-gray-100 rounded-xl bg-white shadow-sm hover:shadow-lg transition-shadow duration-300 text-center">
+                <h5 class="font-bold text-lg text-indigo-600 mb-1">Scaling Business Owners</h5>
+                <p class="text-sm text-gray-500">Your business is growing fast, and you need **operational processes** documented, optimized, and automated for stability.</p>
+            </div>
+        </div>
+    </section>
+    
+     <!-- ===== SERVICES SECTION: ELITE PILLARS (Card 2) ===== -->
+      <section id="services-block" class="card-section">
+        <div class="section-content">
+          <!-- SEO: Second H2, describing the service offering -->
+          <h2 class="text-center text-2xl font-extrabold text-gray-800 mb-2">The Antwi VA Max Difference: Time is Our Metric.</h2>
+          <p class="text-center muted max-w-2xl mx-auto mb-10">We specialize in high-stakes, high-impact environments. Stop losing hours—start leading.</p>
+          
+          <div id="services" class="services-grid" role="list" aria-label="Core Service Pillars">
+            
+            <article class="svc" role="listitem">
+              <h4>Executive Time Management</h4>
+              <p class="small font-semibold">Strategic Inbox Zero, Travel Logistics, Priority Filtering.</p>
+              <p class="small">We ensure your day is spent *leading*, not *reacting*. **Value Proposition:** Reclaim your focus.</p>
+            </article>
+            
+            <article class="svc" role="listitem">
+              <h4>Influencer Content Pipeline</h4>
+              <p class="small font-semibold">Asset Organization, Scheduling, Partner Communications.</p>
+              <p class="small">Full management of your content workflow, from draft to publish. **Value Proposition:** Focus solely on creation.</p>
+            </article>
+            
+            <article class="svc" role="listitem">
+              <h4>Operational System Setup & Automation</h4>
+              <p class="small font-semibold">CRM/PM tool setup, Workflow Design, Process Documentation.</p>
+              <p class="small">Building custom, automated systems that eliminate repetitive manual work. **Value Proposition:** Your next level of automation.</p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+
+     <!-- ===== ABOUT SECTION (Card 3) - UPDATED WITH PROFILE IMAGE SPACE ===== -->
+      <section id="about" class="card-section" style="background: linear-gradient(180deg, var(--bg-start), var(--bg-end)); padding: 60px 36px; font-family: 'Nunito', sans-serif; color: var(--text);">
+        <div style="max-width: 900px; margin: 0 auto; padding: 0;">
+          <!-- SEO: Third H2, providing background and expertise -->
+          <h2 style="text-align: center; font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 30px;">About Me: The Calm Command Philosophy</h2>
+          
+          <!-- Profile Image and Initial Narrative using the two-column layout -->
+          <div class="two-col items-start md:items-start mb-8"> 
+            <!-- Column 1: Profile Image Placeholder -->
+            <!-- NOTE: Please replace this placeholder URL with your actual image URL! -->
+            <div class="about-photo w-64 mx-auto md:w-full md:mx-0" style="max-width: 320px;">
+              <img src="https://placehold.co/400x400/3A8DFF/ffffff?text=Antwi+Gordon+Profile+Image" alt="Professional profile of Antwi Gordon" style="border-radius: var(--radius); box-shadow: 0 10px 20px rgba(16,50,67,0.15);" />
+            </div>
+            
+            <!-- Column 2: Introduction Text -->
+            <div>
+              <p class="muted mt-4 md:mt-0">
+                My name is <strong>Antwi Gordon</strong>, and I hail from Ghana, a place where hard work, warmth, and purpose shape everything we do.
+              </p>
+
+              <p class="muted">
+                My journey led me from marketing and customer service in a boutique shop to becoming an Administrative Assistant at the financial company **Nami Nenim**. There, I developed a passion for organization and structure, but I sought a deeper purpose: **to help others bring order and calm into their daily lives**.
+              </p>
+
+              <p class="muted">
+                I spent years researching **time management**, only to discover a more powerful truth: you can’t manage time, but you can help others **master how they use it**. That realization led me to become an **Executive Virtual Assistant**—a role that combines my foundation in operations, service, and strategic thinking.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Remaining narrative (outside the grid for full width) -->
+          <p class="muted">
+            Today, I dedicate my work to helping **founders, CEOs, and business owners** find peace in their operations. Every task I take on carries **integrity, trust, and heart**, because I believe that real success isn’t just in achieving more—it’s in achieving it *calmly and with **operational clarity.***
+          </p>
+
+          <p style="line-height: 1.8; text-align: center; font-weight: 600; color: var(--primary); margin-top: 30px;">
+            What started as a search for how to manage time has become my purpose — to help others make time work beautifully for them. 🌱
+          </p>
+        </div>
+      </section>
+      
+      <!-- CTA block (Card 4) -->
+      <section id="work" class="card-section cta-block" aria-label="Work with me" style="margin-bottom: 30px;">
+        <div>
+          <!-- H3 is the correct sub-heading here -->
+          <h3>Ready to simplify your operations?</h3>
+          <p class="muted" style="margin-top:6px">Let’s design systems that free your time and protect your focus.</p>
+          <div class="cta-actions" style="margin-top: 15px; display: flex; gap: 16px;">
+            <a class="btn primary" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank">Book a Discovery Call</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/antwi-gordon-02a74a271" target="_blank">Connect on LinkedIn</a>
+        </div>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER (Card 5) -->
+      <section class="card-section newsletter" aria-label="Newsletter">
+        <!-- H4 is the correct sub-heading here -->
+        <h4>Join My Newsletter</h4>
+        <p>Receive calm, actionable productivity tips and workflow insights directly to your inbox.</p>
+
+        <!-- BEGIN: HubSpot embed (your provided snippet) - Branding hidden by CSS -->
+        <script src="https://js-eu1.hsforms.net/forms/embed/147094081.js" defer></script>
+        <div class="hs-form-frame" data-region="eu1" data-form-id="4f9aaa0f-d645-47e3-a639-d243fbcdb8e8" data-portal-id="147094081"></div>
+        <!-- END: HubSpot embed -->
+
+      </section>
+      
+      <!-- FOOTER (Card 6) -->
+      <section class="card-section" style="padding: 0; margin-bottom: 0;">
+        <!-- SEO: role="contentinfo" for the footer -->
+        <footer role="contentinfo">
+          <div class="socials" role="navigation" aria-label="Social">
+            <a class="icon" href="https://www.linkedin.com/in/antwi-gordon-02a74a271" target="_blank" title="LinkedIn">in</a>
+            <a class="icon" href="https://calendly.com/gordonantwi62/book-a-call-with-antwi-va-max" target="_blank" title="Book a call">📅</a>
+          </div>
+          <div class="small">© <span id="current-year"></span> Antwi VA Max • Calm Command</div>
+          <div style="margin-top:8px"><a href="mailto:antwivamax@gmail.com" class="small">antwivamax@gmail.com</a></div>
+        </footer>
+      </section>
+
+    </main>
+<!-- END MAIN CONTENT WRAPPER -->
+
+
+<!-- 4. AI ASSISTANT CHAT INTERFACE (NEW) -->
+<div id="chat-button" role="button" aria-label="Open AI Assistant" onclick="toggleChat()">
+    <!-- SVG Icon for Assistant/Robot -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+        <path d="M12 2a5 5 0 0 0-5 5v2a2 2 0 0 1-2 2H3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h4a2 2 0 0 1 2 2v2a5 5 0 0 0 10 0v-2a2 2 0 0 1 2-2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-4a2 2 0 0 1-2-2V7a5 5 0 0 0-5-5z"></path>
+        <circle cx="12" cy="11" r="1.5"></circle>
+    </svg>
+</div>
+
+<div id="chat-modal">
+    <div id="chat-header">
+        Antwi VA Max Assistant
+        <button onclick="toggleChat()" class="text-white hover:text-gray-200 focus:outline-none" aria-label="Close chat">
+            <!-- Close icon (X) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+    </div>
+    <div id="chat-messages">
+        <!-- Initial message from assistant -->
+        <div class="message assistant-message">
+            Hello! I am the Antwi VA Max Business Assistant. I can help answer questions about our **Executive Support, Operational Systems, and Content Pipeline** services.
+        </div>
+    </div>
+    <div id="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Ask about our services..." class="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" onkeydown="if(event.key === 'Enter') sendMessage()">
+        <button onclick="sendMessage()" id="send-button" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-150">
+            Send
+        </button>
+    </div>
+</div>
+<!-- END AI ASSISTANT CHAT INTERFACE -->
+
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const modal = document.getElementById("knowMeModal");
-  const playBtn = document.getElementById("playAudioBtn");
-  const closeBtn = document.getElementById("closeModalBtn");
-  const audio = document.getElementById("introAudio");
+// --- GLOBAL API SETTINGS ---
+const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent";
+const API_KEY = ""; // Canvas environment will provide the key
+const SYSTEM_PROMPT = "You are the Antwi VA Max Business Assistant, a professional, concise, and highly efficient virtual assistant. Your role is to answer user questions regarding the business, its services (Executive Time Management, Influencer Content Pipeline, Operational Systems), and operational philosophy (Calm Command). Keep answers brief and professional. Use Google Search to ground your answers in real-time information. If you cannot find the answer, politely state that you can only answer questions related to the business's services and operations and suggest they visit the full website sections.";
+let chatHistory = [];
+let isProcessing = false;
 
-  // Show modal gently after small delay
-  setTimeout(() => { modal.classList.add("show"); }, 1000);
+// --- CHAT UI FUNCTIONS ---
+function toggleChat() {
+    const modal = document.getElementById('chat-modal');
+    const isVisible = modal.style.display === 'flex';
+    modal.style.display = isVisible ? 'none' : 'flex';
+    document.getElementById('chat-button').setAttribute('aria-expanded', !isVisible);
+    if (!isVisible) {
+        // Scroll to bottom when opening
+        const messages = document.getElementById('chat-messages');
+        messages.scrollTop = messages.scrollHeight;
+    }
+}
 
-  // Play audio when "Know Me" clicked
-  playBtn.addEventListener("click", function() {
-    audio.play().catch(err => console.log(err));
-    modal.classList.remove("show");
-  });
+function displayMessage(text, sender, sources = []) {
+    const messagesDiv = document.getElementById('chat-messages');
+    
+    // Create the message bubble
+    const message = document.createElement('div');
+    message.className = `message ${sender}-message`;
+    
+    // Use innerHTML for Markdown formatting (especially for links/lists from the API)
+    message.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Basic bold markdown conversion
 
-  // Close modal if "Maybe later" clicked
-  closeBtn.addEventListener("click", function() {
-    modal.classList.remove("show");
-  });
+    // Add sources/citations if present and sender is assistant
+    if (sender === 'assistant' && sources.length > 0) {
+        const sourcesDiv = document.createElement('div');
+        sourcesDiv.className = 'mt-2 pt-2 border-t border-gray-200 text-xs text-gray-500';
+        sourcesDiv.innerHTML = '<strong>Sources:</strong> ' + sources.map((s, i) => 
+            `<a href="${s.uri}" target="_blank" class="hover:underline">${s.title.substring(0, 30)}...</a>`
+        ).join(' | ');
+        message.appendChild(sourcesDiv);
+    }
+    
+    messagesDiv.appendChild(message);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function showLoadingIndicator() {
+    const messagesDiv = document.getElementById('chat-messages');
+    const loadingMessage = document.createElement('div');
+    loadingMessage.id = 'loading-message';
+    loadingMessage.className = 'message assistant-message flex items-center gap-1';
+    loadingMessage.innerHTML = 'Thinking<span class="loading-indicator"></span><span class="loading-indicator"></span><span class="loading-indicator"></span>';
+    messagesDiv.appendChild(loadingMessage);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function hideLoadingIndicator() {
+    const loadingMessage = document.getElementById('loading-message');
+    if (loadingMessage) {
+        loadingMessage.remove();
+    }
+}
+
+// --- API & BACKOFF LOGIC ---
+
+/**
+ * Robust fetch wrapper with exponential backoff for handling transient errors.
+ */
+async function fetchWithRetry(url, payload, maxRetries = 5) {
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (response.ok) {
+                return response.json();
+            } else if (response.status === 429 || response.status >= 500) {
+                // Rate limit or server error - initiate backoff
+                if (attempt < maxRetries - 1) {
+                    const delay = Math.pow(2, attempt) * 1000 + (Math.random() * 1000); // 1s, 2s, 4s, 8s... + jitter
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    continue; // Retry
+                } else {
+                    throw new Error(`API failed after ${maxRetries} attempts with status: ${response.status}`);
+                }
+            } else {
+                // Other non-retriable client errors
+                const errorBody = await response.text();
+                throw new Error(`API Error ${response.status}: ${errorBody}`);
+            }
+        } catch (error) {
+            // Network errors
+            if (attempt < maxRetries - 1) {
+                const delay = Math.pow(2, attempt) * 1000 + (Math.random() * 1000);
+                await new Promise(resolve => setTimeout(resolve, delay));
+                continue; // Retry
+            } else {
+                throw new Error(`Network error after ${maxRetries} attempts: ${error.message}`);
+            }
+        }
+    }
+    throw new Error('Exhausted all retries.');
+}
+
+// --- MAIN SEND MESSAGE FUNCTION ---
+async function sendMessage() {
+    if (isProcessing) return; // Prevent multiple requests
+    
+    const inputField = document.getElementById('chat-input');
+    const userQuery = inputField.value.trim();
+
+    if (userQuery === "") return;
+
+    // 1. Display user message and clear input
+    displayMessage(userQuery, 'user');
+    inputField.value = "";
+    isProcessing = true;
+    showLoadingIndicator();
+
+    // 2. Add user message to history
+    chatHistory.push({ role: "user", parts: [{ text: userQuery }] });
+
+    const payload = {
+        contents: chatHistory,
+        tools: [{ "google_search": {} }],
+        systemInstruction: {
+            parts: [{ text: SYSTEM_PROMPT }]
+        },
+    };
+    
+    const apiUrlWithKey = `${API_URL}?key=${API_KEY}`;
+
+    try {
+        const result = await fetchWithRetry(apiUrlWithKey, payload);
+        
+        hideLoadingIndicator();
+
+        const candidate = result.candidates?.[0];
+        if (candidate && candidate.content?.parts?.[0]?.text) {
+            const assistantResponseText = candidate.content.parts[0].text;
+            
+            // Extract grounding sources
+            let sources = [];
+            const groundingMetadata = candidate.groundingMetadata;
+            if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                sources = groundingMetadata.groundingAttributions
+                    .map(attribution => ({
+                        uri: attribution.web?.uri,
+                        title: attribution.web?.title || attribution.uri,
+                    }))
+                    .filter(source => source.uri);
+            }
+
+            // 3. Display assistant response
+            displayMessage(assistantResponseText, 'assistant', sources);
+            
+            // 4. Add assistant response to history
+            chatHistory.push({ role: "model", parts: [{ text: assistantResponseText }] });
+
+        } else {
+            displayMessage("I apologize, but I received an empty response. Please try rephrasing your question.", 'assistant');
+            console.error('Received unexpected response structure:', result);
+        }
+
+    } catch (error) {
+        hideLoadingIndicator();
+        // Remove the last user message from history if the API call failed completely
+        chatHistory.pop(); 
+        displayMessage("I'm sorry, I'm currently having trouble connecting to the service. Please check back later or use the contact information provided above.", 'assistant');
+        console.error("Gemini API call failed:", error);
+    } finally {
+        isProcessing = false;
+    }
+}
+
+
+// --- TIMEZONE CLOCK FEATURE ---
+function updateTimezoneClock() {
+    const clockElement = document.getElementById('timezone-clock');
+    if (!clockElement) return;
+
+    // Options for consistent time display
+    const options = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        timeZoneName: 'short'
+    };
+
+    // Key business timezones for executive support
+    const timezones = [
+        { zone: 'America/New_York', label: 'NY (EST)' },
+        { zone: 'Europe/London', label: 'London (GMT)' } // Ghana is also GMT/UTC
+    ];
+
+    let html = timezones.map(tz => {
+        const now = new Date();
+        // Create a dedicated formatter for the specific timezone
+        const formatter = new Intl.DateTimeFormat('en-US', { ...options, timeZone: tz.zone });
+        
+        // Format and clean up the string (removing ' GMT' or ' UTC')
+        const timeString = formatter.format(now).split(' GMT')[0].split(' UTC')[0]; 
+        
+        return `
+            <div class="flex items-center space-x-1 whitespace-nowrap">
+                <span class="text-indigo-600">
+                    <!-- Icon for Time (Clock) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+                <span class="text-gray-500 font-normal text-xs">${tz.label}:</span>
+                <span class="text-gray-900">${timeString}</span>
+            </div>
+        `;
+    }).join('<div class="w-[1px] h-4 bg-gray-200 mx-1"></div>'); // Separator
+
+    clockElement.innerHTML = html;
+}
+
+// --- Small Runtime Replacements and Accessibility ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Set the current year in the footer (Fixed ID and guaranteed DOM existence)
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+    
+    // Accessibility: focus outline for keyboard users
+    document.addEventListener('keyup', function(e){
+        if(e.key === "Tab"){
+            document.body.classList.add('show-focus');
+        }
+    });
+
+    // Timezone Clock initialization
+    updateTimezoneClock();
+    // Update every second
+    setInterval(updateTimezoneClock, 1000);
 });
+
+
+// --- 3D Scene Setup (Time Maximizer Visualization) ---
+window.onload = function() {
+    const container = document.getElementById('scene-container');
+    let scene, camera, renderer, lineGroup;
+    let width = container.clientWidth;
+    let height = container.clientHeight;
+
+    const init = () => {
+        // Scene
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0d0d1e); 
+
+        // Camera
+        camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+        camera.position.z = 5;
+
+        // Renderer
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(width, height);
+        container.appendChild(renderer.domElement);
+        
+        // Group to hold the lines and spheres
+        lineGroup = new THREE.Group();
+        scene.add(lineGroup);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
+
+        createStructure();
+        window.addEventListener('resize', onWindowResize, false);
+    };
+
+    // --- Geometric Structure Creation ---
+    const createStructure = () => {
+        const numLines = 15;
+        const radius = 2;
+        const lineMaterial = new THREE.LineBasicMaterial({ 
+            color: 0x6366f1, // Primary line color (indigo)
+            linewidth: 1 
+        });
+        const pointMaterial = new THREE.MeshPhongMaterial({ 
+            color: 0xc4b5fd, // Point color (light indigo)
+            shininess: 80 
+        });
+
+        for (let i = 0; i < numLines; i++) {
+            const angle = (i / numLines) * Math.PI * 2;
+            const innerRadius = radius + Math.random() * 0.5;
+
+            // 1. Create a circular path (line)
+            const curve = new THREE.EllipseCurve(
+                0, 0, // ax, ay
+                innerRadius, innerRadius, // xRadius, yRadius
+                0, 2 * Math.PI, // aStartAngle, aEndAngle
+                false, // aClockwise
+                angle // aRotation
+            );
+            const points = curve.getPoints(100);
+            const geometry = new THREE.BufferGeometry().setFromPoints(points);
+            const orbitLine = new THREE.Line(geometry, lineMaterial);
+            
+            // Rotate the orbit line randomly to make it 3D
+            orbitLine.rotation.x = Math.random() * Math.PI;
+            orbitLine.rotation.y = Math.random() * Math.PI;
+            orbitLine.rotation.z = Math.random() * Math.PI;
+            
+            lineGroup.add(orbitLine);
+            
+            // 2. Create a "task" sphere (the moving focus point)
+            const point = new THREE.Mesh(
+                new THREE.SphereGeometry(0.05, 16, 16),
+                pointMaterial
+            );
+            
+            // Attach trajectory data to the point for animation
+            point.userData.curve = curve;
+            point.userData.timeOffset = Math.random() * 1000;
+            point.userData.speed = 0.5 + Math.random() * 0.5; // Random speed
+            point.userData.parentLine = orbitLine; // Reference to parent line
+            
+            lineGroup.add(point);
+        }
+    };
+
+    // --- Animation Loop ---
+    const animate = () => {
+        requestAnimationFrame(animate);
+
+        const time = Date.now() * 0.0001;
+
+        // 1. Rotate the entire structure slowly
+        lineGroup.rotation.y += 0.002;
+        lineGroup.rotation.x += 0.001;
+
+        // 2. Animate the points along their orbits
+        lineGroup.children.forEach(child => {
+            if (child.userData.curve) {
+                const curve = child.userData.curve;
+                const speed = child.userData.speed;
+                const timeOffset = child.userData.timeOffset;
+                const parentLine = child.userData.parentLine;
+
+                // Calculate position based on time, speed, and offset
+                const t = ((time * speed) + timeOffset) % 1;
+                const position2D = curve.getPoint(t);
+                
+                // Set 3D position based on the 2D position and the line's rotation
+                child.position.set(position2D.x, position2D.y, 0);
+
+                // Apply the line's rotation to the point's local position
+                child.position.applyEuler(parentLine.rotation);
+            }
+        });
+
+        renderer.render(scene, camera);
+    };
+    
+    // --- Event Handlers ---
+    const onWindowResize = () => {
+        width = container.clientWidth;
+        height = container.clientHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+    };
+
+    init();
+    animate();
+};
 </script>
 
 </body>
